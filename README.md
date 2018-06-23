@@ -7,3 +7,6 @@ To modify the polybar, edit the config file, save it, and check that it works ru
 where mybar is the bar name that you have specified in the config file.
 This command will try to draw your bar, and display useful warnings and errors.
 
+
+* Dependencies:
+  + sigi iconic bitmap font https://github.com/stark/siji
