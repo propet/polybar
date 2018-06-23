@@ -51,8 +51,10 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10
-font-1 = unifont:fontformat=truetype:size=6:heavy;-2
+; font-0 = fixed:pixelsize=14
+; font-1 = unifont:fontformat=truetype:size=10:heavy;-2
+font-0 = fixed:pixelsize=14
+font-1 = unifont:fontformat=truetype:size=10:heavy;-2
 font-2 = siji:pixelsize=10
 
 ; modules-left = bspwm i3 xwindow
@@ -78,6 +80,7 @@ override-redirect = true
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
+
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
@@ -85,7 +88,8 @@ label = %title:0:30:...%
 [module/xkeyboard]
 type = internal/xkeyboard
 blacklist-0 = num lock
-label-layout = %{F#55}%{F-} %layout%
+; label-layout = %{F#55}%{F-} %layout%
+label-layout = %{F-} %layout%
 ; label-layout-underline = ${colors.secondary}
 label-layout-underline = ${colors.background}
 label-indicator-padding = 2
@@ -132,26 +136,69 @@ format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
 
+
+; ws-icon-[0-9]+ = label;icon
+; ; NOTE: The label needs to match the name of the i3 workspace
+ws-icon-0 = 1;α
+ws-icon-1 = 2;β
+ws-icon-2 = 3;γ
+ws-icon-3 = 4;δ
+ws-icon-4 = 5;ε
+ws-icon-5 = 6;ζ
+ws-icon-6 = 7;η
+ws-icon-7 = 8;θ
+ws-icon-8 = 9;ι
+ws-icon-9 = 10;κ
+; ws-icon-default = ♟
+; ; NOTE: You cannot skip icons, e.g. to get a ws-icon-6
+; ; you must also define a ws-icon-5.
+
 label-mode-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
-label-focused = %index%
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-focused = %icon%
+; label-focused = %index%
 label-focused-background = ${module/bspwm.label-focused-background}
 label-focused-underline = ${module/bspwm.label-focused-underline}
 label-focused-padding = ${module/bspwm.label-focused-padding}
 
-label-unfocused = %index%
+; Available tokens:
+; ;   %name%
+; ;   %icon%
+; ;   %index%
+; ;   %output%
+; ; Default: %icon%  %name%
+label-unfocused = %icon%
 label-unfocused-padding = ${module/bspwm.label-occupied-padding}
 
-label-urgent = %index%!
+; Available tokens:
+; ;   %name%
+; ;   %icon%
+; ;   %index%
+; ;   %output%
+; ; Default: %icon%  %name%
+label-urgent = %icon%!
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
-label-visible = %index%
+; Available tokens:
+; ;   %name%
+; ;   %icon%
+; ;   %index%
+; ;   %output%
+; ; Default: %icon%  %name%
+label-visible = %icon%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
+
 
 [module/mpd]
 type = internal/mpd
@@ -269,8 +316,12 @@ label = %date% %time%
 [module/volume]
 type = internal/volume
 
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL
+; Available tags:
+; ;   <label-volume> (default)
+; ;   <ramp-volume>
+; ;   <bar-volume>
+; format-volume = <label-volume> <bar-volume>
+label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
 
 format-muted-prefix = " "
