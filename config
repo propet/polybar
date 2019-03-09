@@ -46,8 +46,8 @@ line-size = 3
 line-color = #f00
 
 ; border-size = 10
-border-left-size   = 500
-border-right-size  = 500
+border-left-size   = 400
+border-right-size  = 400
 border-top-size    = 0
 border-bottom-size = 0
 border-color = #00000000
@@ -59,12 +59,13 @@ module-margin-left = 1
 module-margin-right = 1
 
 font-0 = fixed:pixelsize=10;1
+; font-0 = Roboto:style=Regular:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = bspwm i3
+modules-left = i3
 modules-center = xwindow
-modules-right = xkeyboard alsa memory cpu battery temperature date powermenu
+modules-right = xkeyboard alsa memory cpu temperature date powermenu
 
 tray-position = right
 tray-padding = 2
